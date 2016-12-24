@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Sam 24 Décembre 2016 à 00:05
+-- Généré le :  Sam 24 Décembre 2016 à 19:52
 -- Version du serveur :  10.1.19-MariaDB
 -- Version de PHP :  5.6.28
 
@@ -79,10 +79,11 @@ CREATE TABLE `lecon` (
 CREATE TABLE `quiz` (
   `id_quiz` int(11) NOT NULL,
   `question` varchar(60) NOT NULL,
-  `rep` varchar(20) NOT NULL,
+  `rep` varchar(20) DEFAULT NULL,
   `choix_a` varchar(20) NOT NULL,
   `choix_b` varchar(20) NOT NULL,
   `choix_c` varchar(20) NOT NULL,
+  `bonne_rep` varchar(20) NOT NULL,
   `id_lec` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -149,6 +150,7 @@ ALTER TABLE `lecon`
 --
 ALTER TABLE `quiz`
   ADD PRIMARY KEY (`id_quiz`),
+  ADD UNIQUE KEY `question` (`question`),
   ADD UNIQUE KEY `id_lec` (`id_lec`);
 
 --
