@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Sam 24 Décembre 2016 à 19:52
+-- Généré le :  Lun 26 Décembre 2016 à 22:24
 -- Version du serveur :  10.1.19-MariaDB
 -- Version de PHP :  5.6.28
 
@@ -41,8 +41,7 @@ CREATE TABLE `chapitre` (
 
 CREATE TABLE `cour` (
   `id_cour` int(11) NOT NULL,
-  `libelle_cour` varchar(20) NOT NULL,
-  `id` int(11) NOT NULL
+  `libelle_cour` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -127,8 +126,7 @@ ALTER TABLE `chapitre`
 -- Index pour la table `cour`
 --
 ALTER TABLE `cour`
-  ADD PRIMARY KEY (`id_cour`),
-  ADD UNIQUE KEY `id` (`id`);
+  ADD PRIMARY KEY (`id_cour`);
 
 --
 -- Index pour la table `cour_user`
@@ -194,12 +192,6 @@ ALTER TABLE `users`
 --
 ALTER TABLE `chapitre`
   ADD CONSTRAINT `chapitre_ibfk_1` FOREIGN KEY (`id_cour`) REFERENCES `cour` (`id_cour`);
-
---
--- Contraintes pour la table `cour`
---
-ALTER TABLE `cour`
-  ADD CONSTRAINT `cour_ibfk_1` FOREIGN KEY (`id`) REFERENCES `users` (`id`);
 
 --
 -- Contraintes pour la table `cour_user`
